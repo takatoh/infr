@@ -1,8 +1,6 @@
 package infr
 
 import (
-	"math"
-
 	"github.com/takatoh/fft"
 )
 

@@ -29,7 +29,7 @@ func Integrate(x []float64, n int) []float64 {
 		y = append(y, real(c[i]))
 	}
 
-	retrun y
+	return y
 }
 
 func integrate(c []complex128, nn int) []complex128 {

@@ -13,7 +13,9 @@ func main() {
 	csvfile := os.Args[1]
 	w := wave.LoadCSV(csvfile)
 	acc := w.Data
+	dt := w.Dt
 	n := len(acc)
+	v0 := acc[0] * dt
 
 	nn := 2
 	for nn < n {
@@ -28,7 +30,12 @@ func main() {
 		c = append(c, complex(0.0, 0.0))
 	}
 	cf := fft.FFT(c, nn)
-	cf = infr.Integrate(cf, nn)
+
+//	for i := 0; i < nn; i++ {
+//		fmt.Println(cf[i])
+//	}
+
+	cf = infr.Integrate(cf, nn, dt, v0)
 	c = fft.IFFT(cf, nn)
 
 	for i := 0; i < n; i++ {

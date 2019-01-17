@@ -29,16 +29,26 @@ func main() {
 	for i := n; i < nn; i++ {
 		c = append(c, complex(0.0, 0.0))
 	}
+
 	cf := fft.FFT(c, nn)
-
-//	for i := 0; i < nn; i++ {
-//		fmt.Println(cf[i])
-//	}
-
 	cf = infr.Integrate(cf, nn, dt, v0)
 	c = fft.IFFT(cf, nn)
 
+	vel := make([]float64, n)
 	for i := 0; i < n; i++ {
-		fmt.Printf("%.3f\n", real(c[i]))
+		vel[i] = real(c[i])
+	}
+
+	cf = fft.FFT(c, nn)
+	cf = infr.Integrate(cf, nn, dt, 0.0)
+	c = fft.IFFT(cf, nn)
+
+	dis := make([]float64, n)
+	for i := 0; i < n; i++ {
+		dis[i] = real(c[i])
+	}
+
+	for i := 0; i < n; i++ {
+		fmt.Printf("%f,%f\n", vel[i], dis[i])
 	}
 }

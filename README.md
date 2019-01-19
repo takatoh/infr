@@ -1,5 +1,5 @@
 # infr
-INtegral in FRequency domain, written in Golang.
+INtegral in FRequency domain, written in golang.
 
 等時間間隔の時刻歴波形を周波数領域で積分します。
 

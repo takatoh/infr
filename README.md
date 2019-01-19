@@ -16,7 +16,7 @@ infr.Integrate 関数を使います。
 
 x がフーリエ変換されたデータ（複素数）、n がデータ数、dt が時間間隔、v0 が初期値です。
 
-フーリエ変換/逆変換には [gituhub.com/takatoh/fft](https://github.com/takatoh/fft)
+フーリエ変換/逆変換には [github.com/takatoh/fft](https://github.com/takatoh/fft)
 ライブラリが利用できます。
 
 ## License

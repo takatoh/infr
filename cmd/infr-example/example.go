@@ -6,14 +6,18 @@ import (
 
 	"github.com/takatoh/fft"
 	"github.com/takatoh/infr"
-	"github.com/takatoh/infr/cmd/infr-example/wave"
+	"github.com/takatoh/seismicwave"
 )
 
 func main() {
 	csvfile := os.Args[1]
-	w := wave.LoadCSV(csvfile)
-	acc := w.Data
-	dt := w.Dt
+	w, e := seismicwave.LoadCSV(csvfile)
+	if e != nil {
+		fmt.Println(e)
+		os.Exit(1)
+	}
+	acc := w[0].Data
+	dt := w[0].Dt
 	n := len(acc)
 	v0 := acc[0] * dt
 

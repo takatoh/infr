@@ -26,12 +26,12 @@ func main() {
 		nn *= 2
 	}
 
-	var c []complex128
+	c := make([]complex128, nn)
 	for i := 0; i < n; i++ {
-		c = append(c, complex(acc[i], 0.0))
+		c[i] = complex(acc[i], 0.0)
 	}
 	for i := n; i < nn; i++ {
-		c = append(c, complex(0.0, 0.0))
+		c[i] = complex(0.0, 0.0)
 	}
 
 	cf := fft.FFT(c, nn)
